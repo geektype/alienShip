@@ -7,6 +7,12 @@ dispSurf = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
 gameclock = pygame.time.Clock()
 
+def drawShip():
+    x = shipX
+    y = shipY
+    points = [(x, y-shipSize), (x-alienSize, y+shipSize), (x+shipSize, y+shipSize)]
+    pygame.draw.lines(dispSurf, GREEN, True, points, 1)
+    return
 def moveAlien():
     global alienDir, alienX, alienY
     if alienDir == 0:
@@ -29,6 +35,7 @@ def drawAlien():
 def drawScreen():
     dispSurf.fill(BLACK)
     drawAlien()
+    drawShip()
     pygame.display.update()
     return
 
