@@ -2,12 +2,14 @@
 TITLE = "Alien Ship"
 HEIGHT = 400
 WIDTH = 300
+FPS = 30
 
 #Alien starting pos
 alienX = 200
 alienY = 20
 alienSize = 10
 alienDir = 0
+alienSpeed = 5
 
 #Define Colors
 BLACK = (0, 0, 0)
