@@ -3,7 +3,7 @@ from pygame.locals import *
 from settings import *
 
 pygame.init()
-dispSurf = pygame.display.set_mode((HEIGHT, WIDTH))
+dispSurf = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
 
 while True:
