@@ -7,6 +7,7 @@ WIDTH = 300
 alienX = 200
 alienY = 20
 alienSize = 10
+alienDir = 0
 
 #Define Colors
 BLACK = (0, 0, 0)
