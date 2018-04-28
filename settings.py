@@ -1,3 +1,8 @@
+#Game Info
+TITLE = "Alien Ship"
+HEIGHT = 400
+WIDTH = 300
+
 #Alien starting pos
 alienX = 200
 alienY = 20
