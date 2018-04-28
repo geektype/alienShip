@@ -5,15 +5,16 @@ from settings import *
 pygame.init()
 dispSurf = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
+gameclock = pygame.time.Clock()
 
 def moveAlien():
     global alienDir, alienX, alienY
     if alienDir == 0:
-        alienX = alienX - 1
+        alienX = alienX - alienSpeed
         if alienX == 0:
             alienDir = 1
     if alienDir == 1:
-        alienX = alienX + 1
+        alienX = alienX + alienSpeed
         if alienX == WIDTH:
             alienDir = 0
 
@@ -34,6 +35,7 @@ def drawScreen():
 while True:
     drawScreen()
     moveAlien()
+    gameclock.tick(FPS)
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
