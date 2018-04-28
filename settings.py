@@ -6,6 +6,7 @@ WIDTH = 300
 #Alien starting pos
 alienX = 200
 alienY = 20
+alienSize = 10
 
 #Define Colors
 BLACK = (0, 0, 0)
