@@ -5,7 +5,21 @@ from settings import *
 pygame.init()
 dispSurf = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
-gameclock = pygame.time.Clock()
+gameClock = pygame.time.Clock()
+
+def fireLaser():
+    global laserX, laserY
+    if laserY <= 0:
+        laserY = shipY
+        laserX = shipX
+
+
+def drawLaser():
+    global laserX, laserY
+    if laserY >= 1:
+        points = [(laserX, laserY+laserSize), (laserX, laserY)]
+        pygame.draw.lines(dispSurf, WHITE, False, points, 1)
+        return
 
 def drawShip():
     x = shipX
@@ -13,6 +27,13 @@ def drawShip():
     points = [(x, y-shipSize), (x-alienSize, y+shipSize), (x+shipSize, y+shipSize)]
     pygame.draw.lines(dispSurf, GREEN, True, points, 1)
     return
+
+def moveLaser():
+    global laserY
+    if laserY >= 1 :
+        laserY = laserY - laserSpeed
+    return
+
 def moveAlien():
     global alienDir, alienX, alienY
     if alienDir == 0:
@@ -32,17 +53,31 @@ def drawAlien():
     pygame.draw.lines(dispSurf, RED, True, points, 1)
     return
 
+
 def drawScreen():
     dispSurf.fill(BLACK)
     drawAlien()
     drawShip()
+    drawLaser()
     pygame.display.update()
     return
 
+def checkKeys():
+    global shipX, shipY
+    if pygame.key.get_pressed()[pygame.K_LEFT]:
+        shipX = shipX - shipSpeed
+    if pygame.key.get_pressed()[pygame.K_RIGHT]:
+        shipX = shipX + shipSpeed
+    if pygame.key.get_pressed()[pygame.K_SPACE]:
+        fireLaser()
+
+
 while True:
+    checkKeys()
     drawScreen()
     moveAlien()
-    gameclock.tick(FPS)
+    moveLaser()
+    gameClock.tick(FPS)
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
