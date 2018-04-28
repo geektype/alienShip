@@ -1,9 +1,10 @@
 import pygame, sys
 from pygame.locals import *
+from settings import *
 
 pygame.init()
-dispSurf = pygame.display.set_mode((400, 300))
-pygame.display.set_caption('Alien Ship')
+dispSurf = pygame.display.set_mode((HEIGHT, WIDTH))
+pygame.display.set_caption(TITLE)
 
 while True:
     for event in pygame.event.get():
