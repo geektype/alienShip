@@ -6,6 +6,18 @@ pygame.init()
 dispSurf = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
 
+def moveAlien():
+    global alienDir, alienX, alienY
+    if alienDir == 0:
+        alienX = alienX - 1
+        if alienX == 0:
+            alienDir = 1
+    if alienDir == 1:
+        alienX = alienX + 1
+        if alienX == WIDTH:
+            alienDir = 0
+
+
 def drawAlien():
     x = alienX
     y = alienY
@@ -20,8 +32,9 @@ def drawScreen():
     return
 
 while True:
+    drawScreen()
+    moveAlien()
     for event in pygame.event.get():
-        drawScreen()
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
