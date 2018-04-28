@@ -22,3 +22,10 @@ alienSpeed = 5
 shipX = 200
 shipY = 385
 shipSize = 10
+shipSpeed = 3
+
+# Laser Info
+laserX = 0
+laserY = 0
+laserSize = 10
+laserSpeed = 5
