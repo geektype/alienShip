@@ -28,4 +28,4 @@ shipSpeed = 3
 laserX = 0
 laserY = 0
 laserSize = 10
-laserSpeed = 5
+laserSpeed = 10

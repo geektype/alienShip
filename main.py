@@ -7,6 +7,11 @@ dispSurf = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
 gameClock = pygame.time.Clock()
 
+def checkLaser():
+    global laserX, laserY, alienX, alienY
+    if (laserX > alienX-10 and laserX < alienX + 10 and laserY > alienY-10 and laserY < alienY + 10):
+        alienY += 20
+    return
 def fireLaser():
     global laserX, laserY
     if laserY <= 0:
@@ -77,6 +82,7 @@ while True:
     drawScreen()
     moveAlien()
     moveLaser()
+    checkLaser()
     gameClock.tick(FPS)
     for event in pygame.event.get():
         if event.type == QUIT:
